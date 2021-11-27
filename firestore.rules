@@ -5,7 +5,7 @@ service cloud.firestore {
       allow read;
       allow write: if false;
     }
-    match /NA3-USERS/{userId} {
+    match /users/{userId} {
     	match /registrationId {
     		allow read;
    		}

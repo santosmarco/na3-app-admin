@@ -24,6 +24,6 @@ export type {
   Na3ServiceOrderStatus,
 } from "./Na3ServiceOrder";
 export type { Na3TransfLabelTemplate } from "./Na3TransfLabelTemplate";
-export type { Na3User } from "./user/Na3User";
+export type { Na3User, Na3UserRegistrationId } from "./user/Na3User";
 export type { Na3UserEvent } from "./user/Na3UserEvent";
 export type { Na3UserPrivilegeId } from "./user/Na3UserPrivilege";

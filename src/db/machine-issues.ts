@@ -139,7 +139,7 @@ export const MACHINE_ISSUES: Record<Na3DepartmentId<"shop-floor">, string[]> = {
     "Troca do borne termoplástico",
     "Troca de terminais",
     "Troca do sindal",
-    "Troca do potenciômetro bailário",
+    "Troca do potenciômetro bailarino",
     "Troca do sensor/contador",
   ],
   "kit-manual": [

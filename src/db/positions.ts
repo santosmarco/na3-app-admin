@@ -59,31 +59,31 @@ export const POSITIONS_CONFIG: Record<
     extends: ["manutencao"],
     level: 8,
     name: "Eletricista de Manutenção Industrial I",
-    shortName: "Eletricista",
+    shortName: "Eletricista I",
   },
   "eletricista-2": {
     extends: ["manutencao"],
     level: 6,
     name: "Eletricista de Manutenção Industrial II",
-    shortName: "Eletricista",
+    shortName: "Eletricista II",
   },
   "mecanico-1": {
     extends: ["manutencao"],
     level: 8,
     name: "Mecânico de Manutenção Industrial I",
-    shortName: "Mecânico",
+    shortName: "Mecânico I",
   },
   "mecanico-2": {
     extends: ["manutencao"],
     level: 7,
     name: "Mecânico de Manutenção Industrial II",
-    shortName: "Mecânico",
+    shortName: "Mecânico II",
   },
   "serralheiro-industrial": {
     extends: ["manutencao"],
     level: 6,
     name: "Serralheiro Industrial",
-    shortName: "Serralheiro",
+    shortName: "Serralheiro Industrial",
   },
   "assistente-manutencao": {
     extends: ["manutencao"],
@@ -94,8 +94,8 @@ export const POSITIONS_CONFIG: Record<
   "assistente-compras-manutencao": {
     extends: ["manutencao"],
     level: 3,
-    name: "Assistente de Compras",
-    shortName: "Assist. Compras",
+    name: "Assistente de Compras da Manutenção",
+    shortName: "Assist. Compras (Manutenção)",
   },
   "assistente-pcp": {
     extends: ["pcp"],
@@ -107,27 +107,27 @@ export const POSITIONS_CONFIG: Record<
     extends: ["pcp"],
     level: 3,
     name: "Assistente de Compras do PCP",
-    shortName: "Assist. Compras",
+    shortName: "Assist. Compras (PCP)",
   },
   "supervisor-qualidade": {
     level: 9,
     name: "Supervisor de Garantia da Qualidade",
-    shortName: "Supervisor da Qualidade",
+    shortName: "Supervisor",
   },
   "analista-qualidade": {
     level: 5,
     name: "Analista de Garantia da Qualidade",
-    shortName: "Analista da Qualidade",
+    shortName: "Analista",
   },
   "inspetor-qualidade-1": {
     level: 4,
     name: "Inspetor de Garantia da Qualidade I",
-    shortName: "Inspetor da Qualidade",
+    shortName: "Inspetor I",
   },
   "inspetor-qualidade-2": {
     level: 3,
     name: "Inspetor de Garantia da Qualidade II",
-    shortName: "Inspetor da Qualidade",
+    shortName: "Inspetor II",
   },
   "diretor-operacoes": {
     extends: ["diretor"],
@@ -179,12 +179,12 @@ export const POSITIONS_CONFIG: Record<
   "impressor-flexo-1": {
     level: 6,
     name: "Impressor Flexo I",
-    shortName: "Impressor Flexo",
+    shortName: "Impressor Flexo I",
   },
   "impressor-flexo-2": {
     level: 5,
     name: "Impressor Flexo II",
-    shortName: "Impressor Flexo",
+    shortName: "Impressor Flexo II",
   },
   "assistente-reciclagem": {
     level: 3,
@@ -194,12 +194,12 @@ export const POSITIONS_CONFIG: Record<
   "operador-1": {
     level: 2,
     name: "Operador I",
-    shortName: "Operador",
+    shortName: "Operador I",
   },
   "operador-2": {
     level: 2,
     name: "Operador II",
-    shortName: "Operador",
+    shortName: "Operador II",
   },
   desenvolvedor: {
     extends: ["super"],

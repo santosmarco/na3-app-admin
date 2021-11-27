@@ -10,6 +10,9 @@ lerna-debug.log*
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
+# Firebase cache
+.firebase/
+
 # Runtime data
 pids
 *.pid
@@ -38,12 +41,12 @@ bower_components
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
 
-# Production
-/build
-
 # Dependency directories
 node_modules/
 jspm_packages/
+
+# Production
+build/
 
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
@@ -72,7 +75,7 @@ web_modules/
 # Yarn Integrity file
 .yarn-integrity
 
-# dotenv files
+# dotenv environment variables file
 .env
 .env.test
 .env.production
@@ -120,5 +123,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# Secrets
+# Firebase's Service Account Key file
 nova-a3-ind-firebase-adminsdk-gkico-1aafc69e48.json

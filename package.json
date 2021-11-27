@@ -10,15 +10,18 @@
     "prettier:check": "yarn prettier --check src/",
     "prettier:write": "yarn prettier --write src/",
     "build": "yarn lint:fix && yarn prettier:write && yarn tsc",
-    "prestart": "yarn build",
     "start": "export GOOGLE_APPLICATION_CREDENTIALS='./nova-a3-ind-firebase-adminsdk-gkico-1aafc69e48.json' && node build/index.js",
-    "job": "yarn prestart && export GOOGLE_APPLICATION_CREDENTIALS='./nova-a3-ind-firebase-adminsdk-gkico-1aafc69e48.json' && node build/job.js"
+    "job": "export GOOGLE_APPLICATION_CREDENTIALS='./nova-a3-ind-firebase-adminsdk-gkico-1aafc69e48.json' && node build/job.js"
   },
   "dependencies": {
+    "@ant-design/colors": "^6.0.0",
     "@firebase/app-compat": "^0.1.10",
     "contrast": "^1.0.1",
+    "dayjs": "^1.10.7",
+    "dotenv": "^10.0.0",
     "firebase-admin": "^9.11.1",
     "ora": "^5.4.1",
+    "pretty-error": "^4.0.0",
     "randomcolor": "^0.6.2",
     "terminal-kit": "^2.1.6"
   },
