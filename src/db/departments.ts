@@ -105,7 +105,12 @@ export const DEPARTMENTS: {
         M4: { name: "Touca" },
       },
       name: "Corte & Solda – Luva",
-      positions: ["supervisor-producao", "lider-turno", "auxiliar-producao"],
+      positions: [
+        "supervisor-producao",
+        "lider-turno",
+        "auxiliar-producao",
+        "operador-mantenedor",
+      ],
       twoLetterId: "CL",
     }),
     "corte-solda-saco": createShopFloorDpt({
@@ -119,7 +124,12 @@ export const DEPARTMENTS: {
         M4: { name: "Maqplas 4" },
       },
       name: "Corte & Solda – Saco",
-      positions: ["supervisor-producao", "lider-turno", "auxiliar-producao"],
+      positions: [
+        "supervisor-producao",
+        "lider-turno",
+        "auxiliar-producao",
+        "operador-mantenedor",
+      ],
       twoLetterId: "CM",
     }),
     dobra: createShopFloorDpt({
@@ -155,7 +165,7 @@ export const DEPARTMENTS: {
         M8: { name: "Sem-fins" },
       },
       name: "EkoPlasto",
-      positions: [],
+      positions: ["gerente-manutencao"],
       twoLetterId: "EK",
     }),
     extrusao: createShopFloorDpt({
@@ -169,7 +179,12 @@ export const DEPARTMENTS: {
         M4: { name: "Extrusora Plana" },
       },
       name: "Extrusão",
-      positions: ["supervisor-producao", "extrusor"],
+      positions: [
+        "supervisor-producao",
+        "extrusor-1",
+        "extrusor-2",
+        "auxiliar-extrusao",
+      ],
       twoLetterId: "EX",
     }),
     "flexografia-papel": createShopFloorDpt({
@@ -243,7 +258,12 @@ export const DEPARTMENTS: {
         M2: { name: "FlowPack 2" },
       },
       name: "Kit Manual",
-      positions: ["supervisor-producao", "lider-turno", "auxiliar-producao"],
+      positions: [
+        "supervisor-producao",
+        "lider-turno",
+        "auxiliar-producao",
+        "operador-mantenedor",
+      ],
       twoLetterId: "FK",
     }),
     "off-set": createShopFloorDpt({
@@ -257,7 +277,7 @@ export const DEPARTMENTS: {
         M4: { name: "DIDE 2" },
       },
       name: "Off-Set",
-      positions: ["impressor-flexo-2"],
+      positions: ["impressor-flexo-2", "encarregado-off-set"],
       twoLetterId: "IO",
     }),
     reciclagem: createShopFloorDpt({
@@ -271,6 +291,8 @@ export const DEPARTMENTS: {
         "lider-turno",
         "auxiliar-producao",
         "assistente-reciclagem",
+        "operador-reciclagem-1",
+        "operador-reciclagem-2",
       ],
       twoLetterId: "RC",
     }),
@@ -283,7 +305,12 @@ export const DEPARTMENTS: {
         M2: { name: "FlowPack 2" },
       },
       name: "Super Kit",
-      positions: ["supervisor-producao", "lider-turno", "auxiliar-producao"],
+      positions: [
+        "supervisor-producao",
+        "lider-turno",
+        "auxiliar-producao",
+        "operador-mantenedor",
+      ],
       twoLetterId: "FK",
     }),
   },

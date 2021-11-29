@@ -42,6 +42,21 @@ export const POSITIONS_CONFIG: Record<
     privileges?: Na3UserPrivilegeId[];
   }
 > = {
+  /* Diretoria */
+  "diretor-operacoes": {
+    extends: ["diretor"],
+    level: 13,
+    name: "Diretor de Operações",
+    shortName: "COO",
+  },
+  "diretor-financeiro": {
+    extends: ["diretor"],
+    level: 13,
+    name: "Diretor Financeiro",
+    shortName: "CFO",
+  },
+
+  /* Gerência */
   "gerente-industrial": {
     extends: ["diretor"],
     level: 12,
@@ -49,11 +64,19 @@ export const POSITIONS_CONFIG: Record<
     shortName: "Gerente Industrial",
     privileges: ["labels_transf_manage_all"],
   },
+
+  /* Manutenção */
   "coordenador-manutencao": {
     extends: ["manutencao"],
     level: 10,
     name: "Coordenador de Manutenção Industrial",
     shortName: "Coordenador de Manutenção",
+  },
+  "gerente-manutencao": {
+    extends: ["manutencao"],
+    level: 10,
+    name: "Gerente de Manutenção Industrial",
+    shortName: "Gerente de Manutenção",
   },
   "eletricista-1": {
     extends: ["manutencao"],
@@ -97,6 +120,8 @@ export const POSITIONS_CONFIG: Record<
     name: "Assistente de Compras da Manutenção",
     shortName: "Assist. Compras (Manutenção)",
   },
+
+  /* PCP */
   "assistente-pcp": {
     extends: ["pcp"],
     level: 3,
@@ -109,37 +134,41 @@ export const POSITIONS_CONFIG: Record<
     name: "Assistente de Compras do PCP",
     shortName: "Assist. Compras (PCP)",
   },
+
+  /* Qualidade */
   "supervisor-qualidade": {
     level: 9,
     name: "Supervisor de Garantia da Qualidade",
-    shortName: "Supervisor",
+    shortName: "Supervisor da Qualidade",
   },
   "analista-qualidade": {
     level: 5,
     name: "Analista de Garantia da Qualidade",
-    shortName: "Analista",
+    shortName: "Analista da Qualidade",
   },
   "inspetor-qualidade-1": {
     level: 4,
     name: "Inspetor de Garantia da Qualidade I",
-    shortName: "Inspetor I",
+    shortName: "Inspetor da Qualidade I",
   },
   "inspetor-qualidade-2": {
     level: 3,
     name: "Inspetor de Garantia da Qualidade II",
-    shortName: "Inspetor II",
+    shortName: "Inspetor da Qualidade II",
   },
-  "diretor-operacoes": {
-    extends: ["diretor"],
-    level: 13,
-    name: "Diretor de Operações",
-    shortName: "COO",
+
+  /* Produção */
+  "supervisor-producao": {
+    extends: ["producao"],
+    level: 9,
+    name: "Supervisor de Produção",
+    shortName: "Supervisor de Produção",
   },
-  "diretor-financeiro": {
-    extends: ["diretor"],
-    level: 13,
-    name: "Diretor Financeiro",
-    shortName: "CFO",
+  "lider-turno": {
+    extends: ["producao"],
+    level: 7,
+    name: "Líder de Turno da Produção",
+    shortName: "Líder de Turno",
   },
   "cortador-guilhotina": {
     extends: ["producao"],
@@ -147,34 +176,16 @@ export const POSITIONS_CONFIG: Record<
     name: "Cortador da Guilhotina",
     shortName: "Cortador",
   },
-  "supervisor-producao": {
-    extends: ["producao"],
-    level: 9,
-    name: "Supervisor da Produção",
-    shortName: "Supervisor",
+  "extrusor-1": {
+    level: 6,
+    name: "Extrusor I",
+    shortName: "Extrusor I",
   },
-  "lider-turno": {
+  "extrusor-2": {
     extends: ["producao"],
-    level: 7,
-    name: "Líder de Turno",
-    shortName: "Líder",
-  },
-  "auxiliar-producao": {
-    level: 1,
-    name: "Auxiliar de Produção",
-    shortName: "Aux. Produção",
-  },
-  extrusor: {
-    extends: ["producao"],
-    level: 7,
-    name: "Extrusor",
-    shortName: "Extrusor",
-  },
-  "operador-flexo": {
-    extends: ["producao"],
-    level: 2,
-    name: "Operador Flexo",
-    shortName: "Operador",
+    level: 6,
+    name: "Extrusor II",
+    shortName: "Extrusor II",
   },
   "impressor-flexo-1": {
     level: 6,
@@ -186,21 +197,63 @@ export const POSITIONS_CONFIG: Record<
     name: "Impressor Flexo II",
     shortName: "Impressor Flexo II",
   },
+  "auxiliar-producao": {
+    level: 1,
+    name: "Auxiliar de Produção",
+    shortName: "Aux. Produção",
+  },
+  "auxiliar-extrusao": {
+    extends: ["producao"],
+    level: 1,
+    name: "Auxiliar de Produção",
+    shortName: "Aux. Produção",
+  },
+  "operador-1": {
+    level: 2,
+    name: "Operador de Produção I",
+    shortName: "Operador de Produção I",
+  },
+  "operador-2": {
+    level: 2,
+    name: "Operador de Produção II",
+    shortName: "Operador de Produção II",
+  },
+  "operador-mantenedor": {
+    extends: ["producao"],
+    level: 2,
+    name: "Operador Mantenedor",
+    shortName: "Operador Mantenedor",
+  },
+  "operador-flexo": {
+    extends: ["producao"],
+    level: 2,
+    name: "Operador Flexo",
+    shortName: "Operador de Produção",
+  },
+  "encarregado-off-set": {
+    extends: ["producao"],
+    level: 2,
+    name: "Encarregado de Produção",
+    shortName: "Encarregado de Produção",
+  },
   "assistente-reciclagem": {
     level: 3,
     name: "Assistente de Reciclagem",
     shortName: "Assist. Reciclagem",
   },
-  "operador-1": {
-    level: 2,
-    name: "Operador I",
-    shortName: "Operador I",
-  },
-  "operador-2": {
+  "operador-reciclagem-1": {
     level: 2,
     name: "Operador II",
-    shortName: "Operador II",
+    shortName: "Operador de Produção II",
   },
+  "operador-reciclagem-2": {
+    extends: ["producao"],
+    level: 2,
+    name: "Operador II",
+    shortName: "Operador de Produção II",
+  },
+
+  /* Desenvolvimento */
   desenvolvedor: {
     extends: ["super"],
     level: 13,

@@ -1,7 +1,7 @@
 import type { ConditionalExcept } from "type-fest";
 
 import type { Na3User, Na3UserRegistrationId } from "../modules/na3-types";
-import { pickRandomColorCombination, timestamp } from "../utils";
+import { createRandomUserStyle, timestamp } from "../utils";
 
 type UserBuildConfigRequired = Pick<
   Na3User,
@@ -38,11 +38,10 @@ export function getAuthEmail(registrationId: string): string {
 export function buildUser(
   userConfig: UserBuildConfig,
   options?: UserBuildOptions
-): Omit<Na3User, "id"> {
+): Omit<Na3User, "uid"> {
   const now = timestamp();
-  const colors = pickRandomColorCombination();
 
-  const user: Omit<Na3User, "id"> = {
+  const user: Omit<Na3User, "uid"> = {
     activityHistory: [],
     createdAt: now,
     displayName: `${userConfig.firstName} ${userConfig.lastName}`,
@@ -51,7 +50,7 @@ export function buildUser(
     isSuper: false,
     notificationTokens: [],
     photoUrl: null,
-    style: { backgroundColor: colors[0], color: colors[1] },
+    style: createRandomUserStyle(),
     updatedAt: now,
     isPasswordDefault: true,
     lastSeenAt: now,

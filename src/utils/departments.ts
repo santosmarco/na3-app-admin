@@ -12,6 +12,7 @@ import type {
   Na3Position,
   Na3PositionId,
   Na3PositionIdBase,
+  WebColor,
 } from "../modules/na3-types";
 
 type DepartmentCreatorConfig<T extends Na3DepartmentType> = Omit<
@@ -36,6 +37,20 @@ type PositionIdsParserConfig = {
 type DepartmentStyleCreatorOptions = {
   forceTextColor?: "dark" | "light";
 };
+
+const webColors: Exclude<WebColor, "grey">[] = [
+  "cyan",
+  "geekblue",
+  "gold",
+  "green",
+  "lime",
+  "magenta",
+  "orange",
+  "purple",
+  "red",
+  "volcano",
+  "yellow",
+];
 
 function parsePositionIds(
   positionBaseIds: Na3PositionIdBase[],
@@ -82,11 +97,13 @@ function createDptStyle(
   });
   const textStyle: "dark" | "light" =
     options?.forceTextColor || contrast(bgColor);
+  const webColor = webColors[dptId.length % webColors.length];
 
   return {
     colors: {
       background: bgColor,
       text: textStyle === "light" ? "#011936" : "#FFF7F8",
+      web: webColor,
     },
   };
 }

@@ -100,7 +100,7 @@ export const menuItems: MenuItem[] = [
     onStartMessage: "Setting departments...",
   },
   {
-    label: "Clone prod",
+    label: "Clone prod Firestore",
     onSelect: onCloneProduction,
     onStartMessage: "Cloning prod into test collections...",
   },

@@ -1,9 +1,15 @@
-import type { LiteralDigit } from "../../utils";
+import type { LiteralDigit, WebColor } from "../../utils";
 import type { Na3PositionId } from "../Na3Position";
 import type { Na3UserEvent } from "./Na3UserEvent";
 
 export type Na3UserRegistrationId =
   `${LiteralDigit}${LiteralDigit}${LiteralDigit}${LiteralDigit}`;
+
+export type Na3UserStyle = {
+  readonly backgroundColor: string;
+  readonly color: string;
+  readonly webColor: WebColor;
+};
 
 export type Na3User = {
   readonly activityHistory: Na3UserEvent[];
@@ -12,7 +18,6 @@ export type Na3User = {
   readonly displayName: string;
   readonly email: string | null;
   readonly firstName: string;
-  readonly id: string;
   readonly isActive: boolean;
   readonly isEmailVerified: boolean;
   readonly isPasswordDefault: boolean;
@@ -24,9 +29,7 @@ export type Na3User = {
   readonly photoUrl: string | null;
   readonly positionIds: Na3PositionId[];
   readonly registrationId: Na3UserRegistrationId;
-  readonly style: {
-    readonly backgroundColor: string | null;
-    readonly color: string | null;
-  };
+  readonly style: Na3UserStyle;
+  readonly uid: string;
   readonly updatedAt: string;
 };
