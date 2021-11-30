@@ -1,6 +1,18 @@
+import type { WebColor } from "../utils";
 import type { Na3UserPrivilegeId } from "./user/Na3UserPrivilege";
 
-export type Na3StdDocumentType = "form";
+export type Na3StdDocumentTypeId =
+  | "form"
+  | "instructions"
+  | "manual"
+  | "procedure";
+
+export type Na3StdDocumentType = {
+  color: WebColor;
+  id: Na3StdDocumentTypeId;
+  name: string;
+  shortName: string;
+};
 
 export type Na3StdDocumentPrivileges = {
   approve: Na3UserPrivilegeId[];
