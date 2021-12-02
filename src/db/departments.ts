@@ -22,6 +22,7 @@ export const DEPARTMENTS: {
       id: "administrativo",
       name: "Administrativo",
       positions: ["gerente-industrial"],
+      color: "cyan",
     }),
     manutencao: createFactoryAdmDpt({
       apps: ["manut"],
@@ -38,6 +39,7 @@ export const DEPARTMENTS: {
         "assistente-manutencao",
         "assistente-compras-manutencao",
       ],
+      color: "red",
     }),
     pcp: createFactoryAdmDpt({
       apps: ["manut", "transf"],
@@ -45,6 +47,7 @@ export const DEPARTMENTS: {
       id: "pcp",
       name: "Planejamento & Controle da Produção",
       positions: ["assistente-pcp", "assistente-compras-pcp"],
+      color: "orange",
     }),
     qualidade: createFactoryAdmDpt({
       apps: ["transf"],
@@ -57,6 +60,7 @@ export const DEPARTMENTS: {
         "inspetor-qualidade-1",
         "inspetor-qualidade-2",
       ],
+      color: "blue",
     }),
   },
 
@@ -67,6 +71,7 @@ export const DEPARTMENTS: {
       id: "comex",
       name: "Comércio Exterior",
       positions: [],
+      color: "green",
     }),
     desenvolvimento: createOfficeDpt({
       apps: ["manut", "transf"],
@@ -74,6 +79,7 @@ export const DEPARTMENTS: {
       id: "desenvolvimento",
       name: "Desenvolvimento",
       positions: ["desenvolvedor"],
+      color: "geekblue",
     }),
     diretoria: createOfficeDpt({
       apps: ["manut", "transf"],
@@ -81,6 +87,7 @@ export const DEPARTMENTS: {
       id: "diretoria",
       name: "Diretoria",
       positions: ["diretor-operacoes", "diretor-financeiro"],
+      color: "gold",
     }),
   },
 
@@ -93,6 +100,7 @@ export const DEPARTMENTS: {
       name: "Corte",
       positions: ["cortador-guilhotina"],
       twoLetterId: "CG",
+      color: "lime",
     }),
     "corte-solda-luva": createShopFloorDpt({
       apps: ["manut", "transf"],
@@ -112,6 +120,7 @@ export const DEPARTMENTS: {
         "operador-mantenedor",
       ],
       twoLetterId: "CL",
+      color: "yellow",
     }),
     "corte-solda-saco": createShopFloorDpt({
       apps: ["manut", "transf"],
@@ -131,6 +140,7 @@ export const DEPARTMENTS: {
         "operador-mantenedor",
       ],
       twoLetterId: "CM",
+      color: "yellow",
     }),
     dobra: createShopFloorDpt({
       apps: ["manut", "transf"],
@@ -148,6 +158,7 @@ export const DEPARTMENTS: {
       name: "Dobra",
       positions: ["lider-turno", "auxiliar-producao"],
       twoLetterId: "DB",
+      color: "green",
     }),
     ekoplasto: createShopFloorDpt({
       apps: ["manut", "transf"],
@@ -167,6 +178,7 @@ export const DEPARTMENTS: {
       name: "EkoPlasto",
       positions: ["gerente-manutencao"],
       twoLetterId: "EK",
+      color: "orange",
     }),
     extrusao: createShopFloorDpt({
       apps: ["manut", "transf"],
@@ -186,6 +198,7 @@ export const DEPARTMENTS: {
         "auxiliar-extrusao",
       ],
       twoLetterId: "EX",
+      color: "cyan",
     }),
     "flexografia-papel": createShopFloorDpt({
       apps: ["manut", "transf"],
@@ -199,6 +212,7 @@ export const DEPARTMENTS: {
       name: "Flexografia – Papel",
       positions: ["lider-turno", "impressor-flexo-2"],
       twoLetterId: "IF",
+      color: "geekblue",
     }),
     "flexografia-plastico": createShopFloorDpt({
       apps: ["manut", "transf"],
@@ -210,6 +224,7 @@ export const DEPARTMENTS: {
       name: "Flexografia – Plástico",
       positions: ["operador-flexo"],
       twoLetterId: "ID",
+      color: "geekblue",
     }),
     "kit-automatico": createShopFloorDpt({
       apps: ["manut", "transf"],
@@ -248,6 +263,7 @@ export const DEPARTMENTS: {
         "auxiliar-producao",
       ],
       twoLetterId: "KA",
+      color: "blue",
     }),
     "kit-manual": createShopFloorDpt({
       apps: ["manut", "transf"],
@@ -265,6 +281,7 @@ export const DEPARTMENTS: {
         "operador-mantenedor",
       ],
       twoLetterId: "FK",
+      color: "volcano",
     }),
     "off-set": createShopFloorDpt({
       apps: ["manut", "transf"],
@@ -279,6 +296,7 @@ export const DEPARTMENTS: {
       name: "Off-Set",
       positions: ["impressor-flexo-2", "encarregado-off-set"],
       twoLetterId: "IO",
+      color: "magenta",
     }),
     reciclagem: createShopFloorDpt({
       apps: ["manut", "transf"],
@@ -295,6 +313,7 @@ export const DEPARTMENTS: {
         "operador-reciclagem-2",
       ],
       twoLetterId: "RC",
+      color: "red",
     }),
     "super-kit": createShopFloorDpt({
       apps: ["manut", "transf"],
@@ -312,6 +331,7 @@ export const DEPARTMENTS: {
         "operador-mantenedor",
       ],
       twoLetterId: "FK",
+      color: "purple",
     }),
   },
 };

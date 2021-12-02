@@ -27,6 +27,7 @@ type DepartmentCreatorConfig<T extends Na3DepartmentType> = Omit<
   | "type"
 > & {
   apps: Na3AppId[];
+  color: Exclude<WebColor, "grey">;
   positions: Na3PositionIdBase[];
 };
 
@@ -34,23 +35,13 @@ type PositionIdsParserConfig = {
   departmentId: Na3DepartmentId;
 };
 
+type DepartmentStyleCreatorConfig = {
+  webColor: Exclude<WebColor, "grey">;
+};
+
 type DepartmentStyleCreatorOptions = {
   forceTextColor?: "dark" | "light";
 };
-
-const webColors: Exclude<WebColor, "grey">[] = [
-  "cyan",
-  "geekblue",
-  "gold",
-  "green",
-  "lime",
-  "magenta",
-  "orange",
-  "purple",
-  "red",
-  "volcano",
-  "yellow",
-];
 
 function parsePositionIds(
   positionBaseIds: Na3PositionIdBase[],
@@ -90,6 +81,7 @@ function createApps(appIds: Na3AppId[]): Na3Department["apps"] {
 
 function createDptStyle(
   dptId: Na3DepartmentId,
+  config: DepartmentStyleCreatorConfig,
   options?: DepartmentStyleCreatorOptions
 ): Na3Department["style"] {
   const bgColor: Na3Department["style"]["colors"]["background"] = randomColor({
@@ -97,13 +89,12 @@ function createDptStyle(
   });
   const textStyle: "dark" | "light" =
     options?.forceTextColor || contrast(bgColor);
-  const webColor = webColors[dptId.length % webColors.length];
 
   return {
     colors: {
       background: bgColor,
       text: textStyle === "light" ? "#011936" : "#FFF7F8",
-      web: webColor,
+      web: config.webColor,
     },
   };
 }
@@ -135,7 +126,7 @@ export function createShopFloorDpt(
     name: config.name,
     people: [],
     positions: parsePositionIds(config.positions, { departmentId: config.id }),
-    style: createDptStyle(config.id, options),
+    style: createDptStyle(config.id, { webColor: config.color }, options),
     twoLetterId: config.twoLetterId,
     type: "shop-floor",
   };
@@ -154,7 +145,7 @@ export function createFactoryAdmDpt(
     name: config.name,
     people: [],
     positions: parsePositionIds(config.positions, { departmentId: config.id }),
-    style: createDptStyle(config.id, options),
+    style: createDptStyle(config.id, { webColor: config.color }, options),
     twoLetterId: null,
     type: "factory-adm",
   };
@@ -173,7 +164,7 @@ export function createOfficeDpt(
     name: config.name,
     people: [],
     positions: parsePositionIds(config.positions, { departmentId: config.id }),
-    style: createDptStyle(config.id, options),
+    style: createDptStyle(config.id, { webColor: config.color }, options),
     twoLetterId: null,
     type: "office",
   };
