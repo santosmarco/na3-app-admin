@@ -24,7 +24,7 @@ export type {
   Na3DepartmentStyle,
   Na3DepartmentType,
 } from "./Na3Department";
-export type { Na3Machine } from "./Na3Machine";
+export type { Na3Machine, Na3MachineProdUnit } from "./Na3Machine";
 export type {
   Na3Position,
   Na3PositionId,
@@ -45,6 +45,7 @@ export type {
 } from "./user/Na3User";
 export type {
   Na3UserAchievement,
+  Na3UserAchievementDefinition,
   Na3UserAchievementIconId,
   Na3UserAchievementId,
   Na3UserAchievementLevel,

@@ -109,12 +109,25 @@ export function createShopFloorDpt(
   const dptMachines: Na3Department<"shop-floor">["machines"] = {};
 
   Object.entries(config.machines).forEach(([id, machine], idx) => {
-    dptMachines[id] = {
-      ...machine,
-      id,
-      issues: MACHINE_ISSUES[config.id],
-      number: idx + 1,
-    };
+    if (!machine.hourlyProdRate || !machine.prodUnit) {
+      dptMachines[id] = {
+        id,
+        name: machine.name,
+        issues: MACHINE_ISSUES[config.id],
+        number: idx + 1,
+        hourlyProdRate: null,
+        prodUnit: null,
+      };
+    } else {
+      dptMachines[id] = {
+        id,
+        name: machine.name,
+        issues: MACHINE_ISSUES[config.id],
+        number: idx + 1,
+        hourlyProdRate: machine.hourlyProdRate,
+        prodUnit: machine.prodUnit,
+      };
+    }
   });
 
   return {
