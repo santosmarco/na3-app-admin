@@ -29,7 +29,12 @@ export const EXTENDABLE_PRIVILEGES: Record<
     /* TEMPORARY */
     "docs_std_write_new",
   ],
-  pcp: ["labels_transf_manage_all", "labels_transf_print_all"],
+  pcp: [
+    "labels_transf_manage_all",
+    "labels_transf_print_all",
+    "service_orders_read_all",
+    "maint_projects_read_all",
+  ],
   producao: [
     "labels_transf_print_own",
     "service_orders_read_own",
