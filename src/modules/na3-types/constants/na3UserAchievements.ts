@@ -3,6 +3,8 @@ import type {
   Na3UserAchievementId,
 } from "../na3";
 
+const DEVELOPMENT_ENABLED = true;
+
 export const NA3_USER_ACHIEVEMENT_DEFINITIONS: Record<
   Na3UserAchievementId,
   Na3UserAchievementDefinition
@@ -12,18 +14,25 @@ export const NA3_USER_ACHIEVEMENT_DEFINITIONS: Record<
     title: "OS encerradas",
     description:
       "Encerre ordens de serviço com menos de 4 horas da solução transmitida",
-    icon: "check",
+    icon: "repair-user",
     id: "service_orders_closed",
     levels: [
       { goal: 10, score: 1000 },
       { goal: 25, score: 2500 },
       { goal: 100, score: 10000 },
     ],
-    targetDepartments: ["shop-floor"],
-    levelDescriptor: ({ remainingToNextLevel }) =>
-      `Encerre mais ${remainingToNextLevel} orde${
-        remainingToNextLevel > 1 ? "ns" : "m"
-      } de serviço para alcançar esse nível`,
+    targetDepartments:
+      DEVELOPMENT_ENABLED && process.env.NODE_ENV !== "production"
+        ? "all"
+        : ["shop-floor"],
+    levelDescriptor: ({ currentLevel, levels, totalProgress }, lvlIdx) => {
+      const remainingToLevel = levels[lvlIdx].goal - totalProgress;
+      return currentLevel.idx > lvlIdx
+        ? "Concluído!"
+        : `Encerre mais ${remainingToLevel} orde${
+            currentLevel.remainingToNextLevel > 1 ? "ns" : "m"
+          } de serviço para alcançar esse nível`;
+    },
     validator: (ev) =>
       !!(
         ev.type === "SERVICE_ORDER_ACCEPT_SOLUTION" &&
@@ -44,11 +53,18 @@ export const NA3_USER_ACHIEVEMENT_DEFINITIONS: Record<
       { goal: 200, score: 10000 },
       { goal: 500, score: 25000 },
     ],
-    targetDepartments: ["manutencao"],
-    levelDescriptor: ({ remainingToNextLevel }) =>
-      `Solucione mais ${remainingToNextLevel} orde${
-        remainingToNextLevel > 1 ? "ns" : "m"
-      } de serviço para alcançar esse nível`,
+    targetDepartments:
+      DEVELOPMENT_ENABLED && process.env.NODE_ENV !== "production"
+        ? "all"
+        : ["manutencao"],
+    levelDescriptor: ({ currentLevel, levels, totalProgress }, lvlIdx) => {
+      const remainingToLevel = levels[lvlIdx].goal - totalProgress;
+      return currentLevel.idx > lvlIdx
+        ? "Concluído!"
+        : `Solucione mais ${remainingToLevel} orde${
+            currentLevel.remainingToNextLevel > 1 ? "ns" : "m"
+          } de serviço para alcançar esse nível`;
+    },
     validator: (ev) =>
       !!(
         ev.type === "SERVICE_ORDER_DELIVER" &&
@@ -63,11 +79,14 @@ export const NA3_USER_ACHIEVEMENT_DEFINITIONS: Record<
     description: "Defina uma bio para o seu perfil",
     icon: "heart",
     id: "user_set_bio",
-    targetDepartments: "all",
+    targetDepartments:
+      DEVELOPMENT_ENABLED && process.env.NODE_ENV !== "production"
+        ? "all"
+        : "all",
     levelDescriptor:
       'Defina sua bio na aba "Minha Conta" para desbloquear essa conquista',
     validator: (ev) => !!(ev.type === "USER_SET_BIO"),
     type: "one-time",
-    score: 500,
+    totalScore: 500,
   },
 };
