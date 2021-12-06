@@ -5,6 +5,7 @@ import type {
 } from "../modules/na3-types";
 
 type ExtendablePrivilegesKey =
+  | "comex"
   | "diretor"
   | "manutencao"
   | "pcp"
@@ -40,6 +41,7 @@ export const EXTENDABLE_PRIVILEGES: Record<
     "service_orders_read_own",
     "service_orders_write_shop_floor",
   ],
+  comex: ["comex_read_all", "comex_write_all"],
   super: ["_super"],
 };
 
@@ -64,13 +66,21 @@ export const POSITIONS_CONFIG: Record<
     shortName: "CFO",
   },
 
-  /* Gerência */
+  /* Gerência Adm */
   "gerente-industrial": {
     extends: ["diretor"],
     level: 12,
     name: "Gerente Industrial",
     shortName: "Gerente Industrial",
     privileges: ["labels_transf_manage_all"],
+  },
+
+  /* COMEX */
+  "gerente-comex": {
+    extends: ["comex"],
+    level: 12,
+    name: "Gerente de Comércio Exterior",
+    shortName: "Gerente COMEX",
   },
 
   /* Manutenção */

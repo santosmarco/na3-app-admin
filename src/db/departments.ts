@@ -70,7 +70,7 @@ export const DEPARTMENTS: {
       displayName: "Comércio Exterior",
       id: "comex",
       name: "Comércio Exterior",
-      positions: [],
+      positions: ["gerente-comex"],
       color: "green",
     }),
     desenvolvimento: createOfficeDpt({
