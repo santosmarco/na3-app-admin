@@ -59,6 +59,7 @@ function parsePositionIds(
         level: posConfig.level,
         name: posConfig.name,
         privileges: [
+          ...EXTENDABLE_PRIVILEGES.base,
           ...(posConfig.extends || []).flatMap(
             (extended) => EXTENDABLE_PRIVILEGES[extended]
           ),

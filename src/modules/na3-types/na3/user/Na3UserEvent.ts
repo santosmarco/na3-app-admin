@@ -2,9 +2,33 @@ import type { Na3ServiceOrderPriority } from "../maintenance/Na3ServiceOrder";
 
 /* Map event types to their data and categories */
 type Na3UserEventMap = {
+  DOCS_STD_ACKNOWLEDGE: {
+    category: "docs_std_consumer";
+    data: { docId: string };
+  };
+  DOCS_STD_APPROVE: {
+    category: "docs_std_approver";
+    data: { docId: string };
+  };
   DOCS_STD_CREATE: {
     category: "docs_std_manager";
     data: { docId: string };
+  };
+  DOCS_STD_DOWNLOAD: {
+    category: "docs_std_consumer";
+    data: { docId: string };
+  };
+  DOCS_STD_EDIT: {
+    category: "docs_std_manager";
+    data: { comment: string; docId: string };
+  };
+  DOCS_STD_REJECT: {
+    category: "docs_std_approver";
+    data: { comment: string; docId: string };
+  };
+  DOCS_STD_UPGRADE: {
+    category: "docs_std_manager";
+    data: { comment: string; docId: string };
   };
   SERVICE_ORDER_ACCEPT_SOLUTION: {
     category: "service_order_operator";

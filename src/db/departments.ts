@@ -182,7 +182,7 @@ export const DEPARTMENTS: {
         M8: { name: "Sem-fins", hourlyProdRate: null, prodUnit: null },
       },
       name: "EkoPlasto",
-      positions: ["gerente-manutencao"],
+      positions: ["gerente-ekoplasto"],
       twoLetterId: "EK",
       color: "orange",
     }),

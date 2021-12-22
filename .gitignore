@@ -123,5 +123,8 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# Misc
+.DS_Store
+
 # Firebase's Service Account Key file
 nova-a3-ind-firebase-adminsdk-gkico-1aafc69e48.json

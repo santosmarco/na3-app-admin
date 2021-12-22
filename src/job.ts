@@ -4,19 +4,32 @@ admin.initializeApp({
   credential: admin.credential.applicationDefault(),
 });
 
-void (async (): Promise<void> => {
-  const { docs: templates } = await admin
-    .firestore()
-    .collection("transf-label-templates")
-    .get();
+const registrationIds = ["0687", "0849", "0653"];
+const uids = [
+  "jbmgHS48yaSqjeyovEDcXtWlzAv1",
+  "unr3uYcaOxNgHfcGJVHfGIh2iN63",
+  "29MWv9yqopTYorutvghnMe1lzZ23",
+];
 
-  await Promise.all(
-    templates.map((template) =>
-      admin
+void (async (): Promise<void> => {
+  const snapshot = await admin.firestore().collection("users").get();
+
+  snapshot.forEach((user) => {
+    const userData = user.data();
+    const { registrationId: userRegistrationId } = userData;
+
+    if (
+      typeof userRegistrationId === "string" &&
+      registrationIds.includes(userRegistrationId)
+    ) {
+      void admin
         .firestore()
-        .collection("TEST-transf-label-templates")
-        .doc(template.id)
-        .set({ ...template.data() })
-    )
-  );
+        .collection("users")
+        .doc(uids[registrationIds.indexOf(userRegistrationId)])
+        .set(userData)
+        .then(() =>
+          console.log(uids[registrationIds.indexOf(userRegistrationId)])
+        );
+    }
+  });
 })();

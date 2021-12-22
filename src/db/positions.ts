@@ -5,31 +5,33 @@ import type {
 } from "../modules/na3-types";
 
 type ExtendablePrivilegesKey =
+  | "base"
   | "comex"
   | "diretor"
   | "manutencao"
   | "pcp"
   | "producao"
+  | "qualidade"
   | "super";
 
 export const EXTENDABLE_PRIVILEGES: Record<
   ExtendablePrivilegesKey,
   Na3UserPrivilegeId[]
 > = {
+  base: ["docs_std_read_own"],
+  diretor: [
+    "labels_transf_print_all",
+    "maint_projects_read_all",
+    "service_orders_read_all",
+    "docs_std_read_all",
+  ],
   manutencao: [
     "maint_projects_read_all",
     "maint_projects_write_all",
     "service_orders_read_all",
     "service_orders_write_maintenance",
   ],
-  diretor: [
-    "labels_transf_print_all",
-    "maint_projects_read_all",
-    "service_orders_read_all",
-    "docs_std_read_all",
-    /* TEMPORARY */
-    "docs_std_write_new",
-  ],
+  qualidade: ["docs_std_read_all", "docs_std_write_new"],
   pcp: [
     "labels_transf_manage_all",
     "labels_transf_print_all",
@@ -42,6 +44,7 @@ export const EXTENDABLE_PRIVILEGES: Record<
     "service_orders_write_shop_floor",
   ],
   comex: ["comex_read_all", "comex_write_all"],
+
   super: ["_super"],
 };
 
@@ -52,7 +55,7 @@ export const POSITIONS_CONFIG: Record<
     privileges?: Na3UserPrivilegeId[];
   }
 > = {
-  /* Diretoria */
+  // Diretoria
   "diretor-operacoes": {
     extends: ["diretor"],
     level: 13,
@@ -66,7 +69,7 @@ export const POSITIONS_CONFIG: Record<
     shortName: "CFO",
   },
 
-  /* Gerência Adm */
+  // Gerência Adm
   "gerente-industrial": {
     extends: ["diretor"],
     level: 12,
@@ -75,7 +78,7 @@ export const POSITIONS_CONFIG: Record<
     privileges: ["labels_transf_manage_all"],
   },
 
-  /* COMEX */
+  // COMEX
   "gerente-comex": {
     extends: ["comex"],
     level: 12,
@@ -83,7 +86,7 @@ export const POSITIONS_CONFIG: Record<
     shortName: "Gerente COMEX",
   },
 
-  /* Manutenção */
+  // Manutenção
   "coordenador-manutencao": {
     extends: ["manutencao"],
     level: 10,
@@ -139,7 +142,7 @@ export const POSITIONS_CONFIG: Record<
     shortName: "Assist. Compras (Manutenção)",
   },
 
-  /* PCP */
+  // PCP
   "assistente-pcp": {
     extends: ["pcp"],
     level: 3,
@@ -153,8 +156,9 @@ export const POSITIONS_CONFIG: Record<
     shortName: "Assist. Compras (PCP)",
   },
 
-  /* Qualidade */
+  // Qualidade
   "supervisor-qualidade": {
+    extends: ["qualidade"],
     level: 9,
     name: "Supervisor de Garantia da Qualidade",
     shortName: "Supervisor da Qualidade",
@@ -175,7 +179,7 @@ export const POSITIONS_CONFIG: Record<
     shortName: "Inspetor da Qualidade II",
   },
 
-  /* Produção */
+  // Produção
   "supervisor-producao": {
     extends: ["producao"],
     level: 9,
@@ -271,7 +275,15 @@ export const POSITIONS_CONFIG: Record<
     shortName: "Operador de Produção II",
   },
 
-  /* Desenvolvimento */
+  // Ekoplasto
+  "gerente-ekoplasto": {
+    extends: ["producao"],
+    level: 2,
+    name: "Gerente EKOPLASTO",
+    shortName: "Gerente EKOPLASTO",
+  },
+
+  // Desenvolvimento
   desenvolvedor: {
     extends: ["super"],
     level: 13,

@@ -1,6 +1,9 @@
 export type { Na3MaintenancePerson } from "./maintenance/Na3MaintenancePerson";
 export type {
   Na3MaintenanceProject,
+  Na3MaintenanceProjectChange,
+  Na3MaintenanceProjectChangeKey,
+  Na3MaintenanceProjectEditEventChanges,
   Na3MaintenanceProjectEvent,
   Na3MaintenanceProjectStatus,
 } from "./maintenance/Na3MaintenanceProject";
@@ -11,6 +14,9 @@ export type {
 export type {
   Na3ServiceOrder,
   Na3ServiceOrderEvent,
+  Na3ServiceOrderEventOrigin,
+  Na3ServiceOrderEventPayload,
+  Na3ServiceOrderEventType,
   Na3ServiceOrderPriority,
   Na3ServiceOrderStatus,
 } from "./maintenance/Na3ServiceOrder";
@@ -35,6 +41,7 @@ export type {
   Na3StdDocumentEvent,
   Na3StdDocumentEventOrigin,
   Na3StdDocumentPermissions,
+  Na3StdDocumentStatus,
   Na3StdDocumentType,
   Na3StdDocumentTypeId,
   Na3StdDocumentVersion,
@@ -51,6 +58,7 @@ export type {
   Na3UserAchievementIconId,
   Na3UserAchievementId,
   Na3UserAchievementLevel,
+  Na3UserAchievementLevelDefinition,
 } from "./user/Na3UserAchievement";
 export type {
   Na3UserEvent,
