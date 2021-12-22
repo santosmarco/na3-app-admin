@@ -1,3 +1,5 @@
+import { terminal } from "terminal-kit";
+
 export function processExit(code = 0): never {
-  process.exit(code);
+  return terminal.processExit(code) as never;
 }

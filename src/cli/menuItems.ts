@@ -46,20 +46,24 @@ const onCloneProduction: MenuItemHandler = async () => {
     testCollections.map((collection) => collection.get())
   );
 
-  const batch = createFirestoreBatch();
+  const delBatch = createFirestoreBatch();
 
   testSnapshots.forEach((snapshot) =>
-    snapshot.forEach((doc) => batch.delete(doc.ref))
+    snapshot.forEach((doc) => delBatch.delete(doc.ref))
   );
+
+  await delBatch.commit();
+
+  const writeBatch = createFirestoreBatch();
 
   prodSnapshots.forEach((snapshot, idx) =>
     snapshot.forEach((doc) => {
       const testDocRef = testCollections[idx].doc(doc.id);
-      batch.set(testDocRef, { ...doc.data() });
+      writeBatch.set(testDocRef, { ...doc.data() });
     })
   );
 
-  const writes = await batch.commit();
+  const writes = await writeBatch.commit();
 
   return `Cloned ${writes.length} documents.`;
 };
