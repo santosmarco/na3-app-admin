@@ -42,6 +42,8 @@ const onCloneProduction: MenuItemHandler = async () => {
   const prodSnapshots = await Promise.all(
     prodCollections.map((collection) => collection.get())
   );
+
+  /*
   const testSnapshots = await Promise.all(
     testCollections.map((collection) => collection.get())
   );
@@ -53,6 +55,7 @@ const onCloneProduction: MenuItemHandler = async () => {
   );
 
   await delBatch.commit();
+  */
 
   const writeBatch = createFirestoreBatch();
 
