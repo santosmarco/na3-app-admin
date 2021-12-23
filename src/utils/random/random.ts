@@ -6,11 +6,8 @@ import type { Falsy } from "utility-types";
 import { DEPARTMENTS } from "../../db/departments";
 import type { Na3Department, Na3Position } from "../../modules/na3-types";
 import type { DayjsInput } from "../../types";
-import {
-  handleFilterDuplicates,
-  handleFilterFalsies,
-  isArray,
-} from "../arrays";
+import { handleFilterDuplicates, handleFilterFalsies } from "../arrays";
+import { isArray } from "../typeGuards";
 
 export function randomInt(
   min: number = Number.MIN_SAFE_INTEGER,
