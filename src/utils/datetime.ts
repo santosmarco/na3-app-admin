@@ -1,5 +1,7 @@
 import dayjs from "dayjs";
 
-export function timestamp(): string {
-  return dayjs().format();
+import type { DayjsInput } from "../types";
+
+export function timestamp(fromDayjs?: DayjsInput): string {
+  return dayjs(fromDayjs).format();
 }

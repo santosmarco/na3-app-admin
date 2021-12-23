@@ -24,6 +24,7 @@ export const EXTENDABLE_PRIVILEGES: Record<
     "maint_projects_read_all",
     "service_orders_read_all",
     "docs_std_read_all",
+    "docs_std_super",
   ],
   manutencao: [
     "maint_projects_read_all",

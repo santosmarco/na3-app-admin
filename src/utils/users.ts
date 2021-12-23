@@ -1,7 +1,7 @@
 import * as colors from "@ant-design/colors";
 
 import type { Na3UserStyle, WebColor } from "../modules/na3-types";
-import { pickRandom } from "./arrays";
+import { randomPick } from "./random/random";
 
 export function createRandomUserStyle(): Na3UserStyle {
   const colorKeys: WebColor[] = [
@@ -19,7 +19,11 @@ export function createRandomUserStyle(): Na3UserStyle {
     "yellow",
   ];
 
-  const chosen = pickRandom(colorKeys);
+  let chosen = randomPick(colorKeys);
+
+  if (!chosen) {
+    chosen = "blue";
+  }
 
   return {
     backgroundColor: colors[chosen][2],
