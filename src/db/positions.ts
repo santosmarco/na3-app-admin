@@ -231,6 +231,12 @@ export const POSITIONS_CONFIG: Record<
     name: "Auxiliar de Produção",
     shortName: "Aux. Produção",
   },
+  "auxiliar-dobra": {
+    extends: ["producao"],
+    level: 1,
+    name: "Auxiliar de Produção",
+    shortName: "Aux. Produção",
+  },
   "operador-1": {
     level: 2,
     name: "Operador de Produção I",

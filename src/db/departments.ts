@@ -158,7 +158,7 @@ export const DEPARTMENTS: {
         M7: { name: "Dobra 7", hourlyProdRate: null, prodUnit: null },
       },
       name: "Dobra",
-      positions: ["lider-turno", "auxiliar-producao"],
+      positions: ["lider-turno", "auxiliar-dobra"],
       twoLetterId: "DB",
       color: "green",
     }),
